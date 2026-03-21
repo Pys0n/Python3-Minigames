@@ -5,7 +5,7 @@ CLEAR = 'cls' if os.name == 'nt' else 'clear'
 class Wordle:
     def __init__(self, tries: int = 6) -> None:
         self.all_words = self.load_words()
-        self.word = random.choice(list(self.all_words))
+        self.word = 'FLACK'
         self.tries = tries
 
     
@@ -39,8 +39,22 @@ class Wordle:
                 elif self.word[pos] == letter:
                     result += f'\033[42m{letter}\033[0m'
                 else:
-                    if self.word.count(letter) >= letters_in_guess[letter]:
+                    if word.count(letter) > self.word.count(letter):
+                        count_right = 0
+
+                        for i, l in enumerate(word):
+                            if self.word[i] == l:
+                                count_right += 1
+
+                        if self.word.count(letter) - count_right - letters_in_guess[letter] >= 0:
+                            result += f'\033[43m{letter}\033[0m'
+                        else:
+                            result += letter
+
+                    elif self.word.count(letter) >= letters_in_guess[letter]:
                         result += f'\033[43m{letter}\033[0m'
+                    else:
+                        result += letter
             
             self.tries -= 1
             
