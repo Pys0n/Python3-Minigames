@@ -39,7 +39,7 @@ class Wordle:
                     else:
                         letters_in_guess[letter] = 1
                     
-                    if self.word.count >= letters_in_guess[letter]:
+                    if self.word.count(letter) >= letters_in_guess[letter]:
                         result += f'\033[43m{letter}\033[0m'
             
             self.tries -= 1
