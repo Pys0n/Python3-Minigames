@@ -29,16 +29,16 @@ class Wordle:
             letters_in_guess = {}
     
             for pos, letter in enumerate(word):
+                if letter in letters_in_guess:
+                    letters_in_guess[letter] += 1
+                else:
+                    letters_in_guess[letter] = 1
+                    
                 if letter not in self.word:
                     result += letter
                 elif self.word[pos] == letter:
                     result += f'\033[42m{letter}\033[0m'
                 else:
-                    if letter in letters_in_guess:
-                        letters_in_guess[letter] += 1
-                    else:
-                        letters_in_guess[letter] = 1
-                    
                     if self.word.count(letter) >= letters_in_guess[letter]:
                         result += f'\033[43m{letter}\033[0m'
             
@@ -54,8 +54,11 @@ guesses = []
 wordle = Wordle()
 while wordle.tries > 0:
     os.system(CLEAR)
-    for guess in guesses:
-        print(guess)
+    for i in range(wordle.tries + len(guesses)):
+        if i < len(guesses):
+            print(guesses[i])
+        else:
+            print('_____')
     
     guess = input('\nYour Guess: ').upper()
 
