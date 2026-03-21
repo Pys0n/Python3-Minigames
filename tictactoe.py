@@ -68,11 +68,18 @@ class TicTacToe:
         elif self.board[6] == self.board[4] == self.board[2]:
             return self.board[6]
 
-ttt = TicTacToe()
+os.system(CLEAR)
 
+ttt = TicTacToe()
 ttt.draw_board()
 while not ttt.has_winner():
     ttt.pick_field(int(input(ttt.turn + '\'s turn: ')))
+    os.system(CLEAR)
     ttt.draw_board()
 
-print('\n\n' + ttt.get_winner(), 'wins!')
+
+winner = ttt.get_winner()
+if winner != None:
+    print('\n\n' + ttt.get_winner(), 'wins!')
+else:
+    print('\n\nNobody wins!')
