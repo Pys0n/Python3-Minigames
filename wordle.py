@@ -24,15 +24,23 @@ class Wordle:
 
         letters = set(list(self.word))
         result = ''
-
+        
         if word != self.word:
+            letters_in_guess = {}
+    
             for pos, letter in enumerate(word):
                 if letter not in self.word:
                     result += letter
                 elif self.word[pos] == letter:
                     result += f'\033[42m{letter}\033[0m'
                 else:
-                    result += f'\033[43m{letter}\033[0m'
+                    if letter in letters_in_guess:
+                        letters_in_guess[letter] += 1
+                    else:
+                        letters_in_guess[letter] = 1
+                    
+                    if self.word.count >= letters_in_guess[letter]:
+                        result += f'\033[43m{letter}\033[0m'
             
             self.tries -= 1
             
