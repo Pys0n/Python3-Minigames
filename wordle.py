@@ -5,7 +5,7 @@ CLEAR = 'cls' if os.name == 'nt' else 'clear'
 class Wordle:
     def __init__(self, tries: int = 6) -> None:
         self.all_words = self.load_words()
-        self.word = 'FLACK'
+        self.word = random.choice(list(self.all_words))
         self.tries = tries
 
     
