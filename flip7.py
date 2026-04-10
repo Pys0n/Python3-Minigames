@@ -139,6 +139,10 @@ while True:
     
         not_finished = [str(num+1) for num in range(len(flip7.players))]
 
+        for _ in range((round_-1)%len(not_finished)):
+            not_finished.append(not_finished[0])
+            not_finished.pop(0)
+
         # Round
         flip7.reset_players()
 
@@ -149,12 +153,12 @@ while True:
                     print('Player ' + player_txt + ': Cards:', ', '.join(flip7.players[player_txt][0]), '| Bonus Cards:', ', '.join(flip7.players[player_txt][1]), ('| Second Chance' if flip7.players[player_txt][2] else ''))
                 
                 print('\nPlayer', player, 'turn!')
-                action = input('[D]raw a card/[F]inish: ')
+                action = input('[T]ake a card/[F]inish: ')
 
                 if action.lower() == 'f':   # finish
                     not_finished.remove(player)
                     continue
-                else:                       # draw
+                else:                       # take card
                     card = flip7.cards_remaining[0]
                     flip7.used_cards.append(card)
                     flip7.cards_remaining.pop(0)
@@ -162,7 +166,7 @@ while True:
                     if len(flip7.cards_remaining) == 0:
                         flip7.reset_card_deck()
 
-                    print('New Card:', card)
+                    print('You get', card)
 
                     if card in ['Freeze', 'Flip Three']:    # action cards (except second chance)
                         flip7.action_card(player, not_finished, card)
