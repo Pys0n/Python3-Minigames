@@ -17,7 +17,7 @@ class TicTacToe:
 
 
     def pick_field(self, id: int) -> None:
-        if isinstance(id, int) and 0 < id < 10:
+        if isinstance(id, int) and 0 < id < 10 and self.board[id-1] not in 'XO':
             self.board[id-1] = self.turn
             self.swap_turn()
 
