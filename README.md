@@ -18,3 +18,6 @@ There is currently one bot:
     - Statistics as X (against random moves): 98.7% Wins; 01.3% Remis; 00.0% Lose
     - Statistics as O (against random moves): 86.7% Wins; 13.3% Remis; 00.0% Lose
     - **Info:** Change `PLAYER` in line 3 to `'X'` (if you want to start) or `'O'` (if you want the bot to start)
+
+There is currently one bot template:
+- TicTacToe-Bot-Template (`tictactoe_bot_template.py`)
