@@ -179,11 +179,11 @@ with open('ttt_bot.data', 'w', encoding='utf-8') as file:
 print('\n', moves_count, '>', moves_count_new)
 
 print('\nBot as O:')
-print(f'Won : {O1} ({round(O1/(RUNS//2), 1)}%)')
-print(f'Lost: {X1} ({round(X1/(RUNS//2), 1)}%)')
-print(f'Draw: {D1} ({round(D1/(RUNS//2), 1)}%)')
+print(f'Won : {O1} ({round(O1/(RUNS//2)*100, 1)}%)')
+print(f'Lost: {X1} ({round(X1/(RUNS//2)*100, 1)}%)')
+print(f'Draw: {D1} ({round(D1/(RUNS//2)*100, 1)}%)')
 
 print('\nBot as X:')
-print(f'Won : {X} ({round(X/(RUNS//2), 1)}%)')
-print(f'Lost: {O} ({round(O/(RUNS//2), 1)}%)')
-print(f'Draw: {D} ({round(D/(RUNS//2), 1)}%)')
+print(f'Won : {X} ({round(X/(RUNS//2)*100, 1)}%)')
+print(f'Lost: {O} ({round(O/(RUNS//2)*100, 1)}%)')
+print(f'Draw: {D} ({round(D/(RUNS//2)*100, 1)}%)')

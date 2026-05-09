@@ -20,7 +20,7 @@ There are currently two bots:
     - **Info:** Change `PLAYER` in line 3 to `'X'` (if you want to start) or `'O'` (if you want the bot to start)
 - learning TicTacToe-Bot (`tictactoe_bot_learning.py`)
     - Statistics as X (against random moves): 98.9% Wins; 01.1% Remis; 00.0% Lose
-    - Statistics as O (against random moves): 89.8% Wins; 10.2% Remis; 00.0% Lose
+    - Statistics as O (against random moves): 90.0% Wins; 10.0% Remis; 00.0% Lose
         - **Attention:** the bot is only this good if it uses the data from `ttt_bot.data`
         - may increase through learning (run `tictactoe_bot_learning_learn.py`)
     - **Info:** Change `PLAYER` in line 3 to `'X'` (if you want to start) or `'O'` (if you want the bot to start)
