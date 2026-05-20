@@ -304,7 +304,6 @@ class Chess:
                 pieces.append(field[1])
                 c_pieces[field] = [x, y]
         pieces.sort()
-        c_pieces.cort()
 
         if pieces in (['K', 'K'], ['B', 'K', 'K'], ['K', 'K', 'N']):
             return True, 'insufficient mating material'
@@ -312,7 +311,7 @@ class Chess:
             return True, 'insufficient mating material'
         
         # threefold repetition
-        if max(self.data['boards'].values()) >= 3:
+        if (max(self.data['boards'].values()) if len(self.data['boards'].values()) > 0 else 1) >= 3:
             return True, 'threefold repetition'
 
         return False, ''
@@ -407,12 +406,17 @@ class Chess:
 chess = Chess()
 while not chess.is_checkmate()[0] and not chess.is_draw()[0]:
     os.system(CLEAR)
-    print(chess.get_all_moves())
+    #print(chess.get_all_moves(), '\n')     # Optional
 
+    figures = {
+        '': ' ',
+        'wK': '♚', 'wQ': '♛', 'wR': '♜', 'wB': '♝', 'wN': '♞', 'wP': '♟',
+        'bK': '♔', 'bQ': '♕', 'bR': '♖', 'bB': '♗', 'bN': '♘', 'bP': '♙',
+        }
     for y, line in enumerate(chess.data['board']):
         for x, item in enumerate(line):
-            print(f'{item:2}{'|' if x != 7 else '\n'}', end='')
-        if y != 7: print('——+——+——+——+——+——+——+——')
+            print(f'{figures[item]}{'|' if x != 7 else '\n'}', end='')
+        if y != 7: print('—+—+—+—+—+—+—+—')
     print()
 
     print('\n' + ('White' if chess.data['turn'] == 'w' else 'Black') + ' to move!')
