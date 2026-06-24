@@ -26,5 +26,6 @@ There are currently two bots:
     - **Info:** Change `PLAYER` in line 3 to `'X'` (if you want to start) or `'O'` (if you want the bot to start)
 
 
-There is currently one bot template:
+There are currently two bot templates:
 - TicTacToe-Bot-Template (`tictactoe_bot_template.py`)
+- Wordle-Bot-Template (`wordle_bot_template.py`)
