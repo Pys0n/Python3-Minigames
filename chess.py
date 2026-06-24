@@ -73,7 +73,7 @@ class Chess:
                     for x_offset in [-1, 0, 1]:
                         for y_offset in [-1, 0, 1]:
                             if x_offset == y_offset == 0: continue
-                            if  0 <= x+x_offset <= 7 and 0 <= y+y_offset <= 7 and (self.data['board'][y+y_offset][x+x_offset] == '' or self.data['board'][y+y_offset][x+x_offset][0] != turn):
+                            if 0 <= x+x_offset <= 7 and 0 <= y+y_offset <= 7 and (self.data['board'][y+y_offset][x+x_offset] == '' or self.data['board'][y+y_offset][x+x_offset][0] != turn):
                                 if not check_depth or not self.is_illegal_because_check(field_str, self.convert_integers_to_field(x+x_offset, y+y_offset), turn):
                                     all_moves[field_str].append(self.convert_integers_to_field(x+x_offset, y+y_offset))
                     
@@ -84,7 +84,8 @@ class Chess:
                             through_check = False
                             enemy_moves = self.get_all_moves('w' if turn != 'w' else 'b', check_depth=False)
                             for moves in enemy_moves.values():
-                                if self.convert_integers_to_field(x-1, y) in moves or \
+                                if self.convert_integers_to_field(x, y) in moves or \
+                                   self.convert_integers_to_field(x-1, y) in moves or \
                                    self.convert_integers_to_field(x-2, y) in moves or \
                                    self.convert_integers_to_field(x-3, y) in moves:
                                     through_check = True
@@ -104,7 +105,8 @@ class Chess:
                             through_check = False
                             enemy_moves = self.get_all_moves('w' if turn != 'w' else 'b', check_depth=False)
                             for moves in enemy_moves.values():
-                                if self.convert_integers_to_field(x+1, y) in moves or \
+                                if self.convert_integers_to_field(x, y) in moves or \
+                                   self.convert_integers_to_field(x+1, y) in moves or \
                                    self.convert_integers_to_field(x+2, y) in moves:
                                     through_check = True
                                     break
