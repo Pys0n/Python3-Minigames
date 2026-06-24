@@ -5,12 +5,12 @@ Simple Minigames developed in Python.
 The Minigames are based on classes, so you can extend them, use them to learn programming or build your own bots and algorithms to play against you, your friends and their bots.
 
 There are currently five minigames:
+- Chess (`chess.py`)
+- Flip 7 (`flip7.py`)
 - Four in a Row (`fourinarow.py`)
 - TicTacToe (`tictactoe.py`)
 - Wordle (`wordle.py`)
     - **Wordle Word List:** https://gist.github.com/dracos/dd0668f281e685bad51479e5acaadb93
-- Flip 7 (`flip7.py`)
-- Chess (`chess.py`)
 
 There are currently two bots:
 - TicTacToe-Bot (`tictactoe_bot.py`)
@@ -27,5 +27,6 @@ There are currently two bots:
 
 
 There are currently two bot templates:
+- Four In A Row-Bot-Template (`fourinarow_bot_template.py`)
 - TicTacToe-Bot-Template (`tictactoe_bot_template.py`)
 - Wordle-Bot-Template (`wordle_bot_template.py`)
