@@ -27,6 +27,7 @@ There are currently two bots:
 
 
 There are currently two bot templates:
+- Chess-Bot-Template (`chess_bot_template.py`)
 - Four In A Row-Bot-Template (`fourinarow_bot_template.py`)
 - TicTacToe-Bot-Template (`tictactoe_bot_template.py`)
 - Wordle-Bot-Template (`wordle_bot_template.py`)
