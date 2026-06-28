@@ -448,11 +448,15 @@ while not chess.is_checkmate()[0] and not chess.is_draw()[0]:
         if y != 7: print('—+—+—+—+—+—+—+—')
     print()
 
-    print('\n' + ('White' if chess.data['turn'] == 'w' else 'Black') + ' to move!')
-    pos = input('From: ')
-    des = input('To  : ')
+    # Player vs Player
+    #print('\n' + ('White' if chess.data['turn'] == 'w' else 'Black') + ' to move!')
+    #pos = input('From: ')
+    #des = input('To  : ')
 
-    chess.move(pos, des)
+    # Bot vs Bot
+    pos, des, pro = choose_move(chess)
+
+    chess.move(pos, des, pro)
 
 if chess.is_checkmate()[0]:
     print(chess.is_checkmate()[1] + ' wins!')
