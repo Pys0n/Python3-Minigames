@@ -64,9 +64,9 @@ class Wordle:
 
     
     def get_guess_result(self, word: str) -> list[str]:
-        global guesses
+        global guessed_words
 
-        if word not in guesses: return None
+        if word not in guessed_words: return None
 
         word = word.upper()
 
@@ -111,8 +111,10 @@ class Wordle:
             return (True, f'\033[42m{word}\033[0m')
 
 
-def choose_word(guesses, wordle):
+def choose_word(guessed_words, wordle):
     word = input()
+
+    if len(guessed_words) > 0: input(wordle.get_guess_result(guessed_words[-1]))
 
     # here comes your code
 
@@ -127,6 +129,7 @@ def choose_word(guesses, wordle):
 
 guessed = False
 guesses = []
+guessed_words = []
 wordle = Wordle()
 while wordle.tries > 0:
     os.system(CLEAR)
@@ -136,12 +139,13 @@ while wordle.tries > 0:
         else:
             print('_____')
     
-    guess = choose_word.upper()
+    guess = choose_word(guessed_words, wordle).upper()
 
     if guess in wordle.all_words:
         result = wordle.guess(guess)
 
         guesses.append(result[1])
+        guessed_words.append(guess)
 
         if result[0]:
             guessed = True
@@ -154,4 +158,4 @@ os.system(CLEAR)
 for guess in guesses:
     print(guess)
 
-if not guessed: print('\nSolution: ' + wordle.word)
+if not guessed: print('\nSolution: ' + wordle._word)
