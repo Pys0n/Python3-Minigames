@@ -27,7 +27,8 @@ There are currently two bots:
     - **Info:** Change `PLAYER` in line 3 to `'X'` (if you want to start) or `'O'` (if you want the bot to start)
 
 
-There are currently two bot templates:
+There are currently five bot templates:
+- 2048 (`2048_bot_template.py`)
 - Chess-Bot-Template (`chess_bot_template.py`)
 - Four In A Row-Bot-Template (`fourinarow_bot_template.py`)
 - TicTacToe-Bot-Template (`tictactoe_bot_template.py`)
