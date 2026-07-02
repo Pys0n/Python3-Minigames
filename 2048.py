@@ -23,6 +23,8 @@ class Game2048:
 
 
     def move(self, direction: str):
+        board_before = str(self.board)
+
         if direction.strip().lower() == 'w':
             for x in range(4):
                 for y in range(1, 4):
@@ -91,8 +93,9 @@ class Game2048:
         if len(empty) == 0:
             return
         
-        pos = random.choice(empty)
-        self.board[pos[0]][pos[1]] = 2
+        if str(self.board) != board_before:
+            pos = random.choice(empty)
+            self.board[pos[0]][pos[1]] = 2
 
     
     def is_game_over(self):
